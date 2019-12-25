@@ -63,4 +63,8 @@ export class UserAddComponent implements OnInit {
     });
   }
 
+  resetForm() {
+    this.newUserForm.resetForm(true);
+  }
+
 }

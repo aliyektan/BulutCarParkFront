@@ -50,4 +50,8 @@ export class PricingAddComponent implements OnInit {
     });
   }
 
+  resetForm() {
+    this.newPricingForm.resetForm(true);
+  }
+
 }

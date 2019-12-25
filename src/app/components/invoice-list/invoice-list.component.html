@@ -1,28 +1,30 @@
-<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table row-border hover">
-  <thead class="thead-light">
-  <tr>
-    <th scope="col">Şube Adı</th>
-    <th scope="col">Araç Plakası</th>
-    <th scope="col">Ücret</th>
-    <th scope="col">Durum</th>
-    <th scope="col">Fatura Tarihi</th>
-    <th scope="col">Ödeme Tarihi</th>
-    <th scope="col">Başlangıç</th>
-    <th scope="col">Bitiş</th>
-    <th scope="col">Görevli</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let invoice of invoices">
-    <td>{{invoice.parkingEvent.currentBranch.name}}</td>
-    <td>{{invoice.parkingEvent.licenseNumber}}</td>
-    <td>{{invoice.price | currency: 'TRY':'symbol-narrow'}}</td>
-    <td>{{invoice.paid ? 'ÖDENDİ' : 'ÖDENMEDİ'}}</td>
-    <td>{{invoice.createdAt | date: 'dd-MM-yyyy hh:mm'}}</td>
-    <td>{{invoice.paid ? (invoice.updatedAt | date: 'dd-MM-yyyy hh:mm') : '-' }}</td>
-    <td>{{invoice.parkingEvent.startDate | date: 'dd-MM-yyyy hh:mm'}}</td>
-    <td>{{invoice.parkingEvent.endDate | date: 'dd-MM-yyyy hh:mm'}}</td>
-    <td>{{invoice.parkingEvent.creator.name + ' ' + invoice.parkingEvent.creator.surname}}</td>
-  </tr>
-  </tbody>
-</table>
+<div class="table-responsive">
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table row-border hover">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">Şube Adı</th>
+      <th scope="col">Araç Plakası</th>
+      <th scope="col">Ücret</th>
+      <th scope="col">Durum</th>
+      <th scope="col">Fatura Tarihi</th>
+      <th scope="col">Ödeme Tarihi</th>
+      <th scope="col">Başlangıç</th>
+      <th scope="col">Bitiş</th>
+      <th scope="col">Görevli</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let invoice of invoices">
+      <td>{{invoice.parkingEvent.currentBranch.name}}</td>
+      <td>{{invoice.parkingEvent.licenseNumber}}</td>
+      <td>{{invoice.price | currency: 'TRY':'symbol-narrow'}}</td>
+      <td>{{invoice.paid ? 'ÖDENDİ' : 'ÖDENMEDİ'}}</td>
+      <td>{{invoice.createdAt | date: 'dd-MM-yyyy hh:mm'}}</td>
+      <td>{{invoice.paid ? (invoice.updatedAt | date: 'dd-MM-yyyy hh:mm') : '-' }}</td>
+      <td>{{invoice.parkingEvent.startDate | date: 'dd-MM-yyyy hh:mm'}}</td>
+      <td>{{invoice.parkingEvent.endDate | date: 'dd-MM-yyyy hh:mm'}}</td>
+      <td>{{invoice.parkingEvent.creator.name + ' ' + invoice.parkingEvent.creator.surname}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

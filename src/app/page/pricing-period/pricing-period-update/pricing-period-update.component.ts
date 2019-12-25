@@ -51,4 +51,9 @@ export class PricingPeriodUpdateComponent implements OnInit {
       console.log(error);
     });
   }
+
+  resetForm() {
+    this.editPricingPeriodForm.resetForm(true);
+  }
+
 }

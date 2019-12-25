@@ -12,7 +12,7 @@ import {Pricing} from '../../../models/pricing-models';
 })
 export class BranchAddComponent implements OnInit {
 
-  @ViewChild(NgForm, {static: false}) newBranchForm: NgForm;
+  @ViewChild(NgForm, {static: true}) newBranchForm: NgForm;
 
   hasError = false;
   message: string;
@@ -51,6 +51,10 @@ export class BranchAddComponent implements OnInit {
       console.log(error);
     });
 
+  }
+
+  resetForm() {
+    this.newBranchForm.resetForm(true);
   }
 
 }

@@ -37,4 +37,8 @@ export class PricingPeriodAddComponent implements OnInit {
     });
   }
 
+  resetForm() {
+    this.newPricingPeriodForm.resetForm(true);
+  }
+
 }

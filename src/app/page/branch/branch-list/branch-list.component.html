@@ -1,38 +1,41 @@
-<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table row-border hover">
-  <thead class="thead-light">
-  <tr>
-    <th scope="col">Şube Adı</th>
-    <th scope="col">Adres</th>
-    <th scope="col">Fiyat Tarifeleri</th>
-    <th scope="col">Park Alanı Sayısı</th>
-    <th scope="col">Müsait Park Alanı Sayısı</th>
-    <th scope="col">Oluşturulma Tarihi</th>
-    <th scope="col">Güncellenme Tarihi</th>
-    <th scope="col">Aksiyonlar</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let branch of branches">
-    <td class="vertical-center">{{branch.name}}</td>
-    <td>{{branch.address}}</td>
-    <td>
-      <button type="button" class="btn btn-outline-dark btn-block" data-toggle="modal" [attr.data-target]="'#pricingListModal-'+branch.id">
-        Fiyat Listesi
-      </button>
-      <pricing-list-modal [branch]="branch"></pricing-list-modal>
-    </td>
-    <td>{{branch.parkPointCount}}</td>
-    <td>{{branch.availableParkPointCount}}</td>
-    <td>{{branch.createdAt | date: 'dd-MM-yyyy hh:mm'}}</td>
-    <td>{{branch.updatedAt | date: 'dd-MM-yyyy hh:mm'}}</td>
-    <td>
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-outline-primary" (click)="prepareForUpdate(branch.id)"><i
-          class="fa fa-edit"></i></button>
-        <button type="button" class="btn btn-outline-danger" (click)="prepareForDelete(branch.id)"><i
-          class="fa fa-trash"></i></button>
-      </div>
-    </td>
-  </tr>
-  </tbody>
-</table>
+<div class="table-responsive">
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table row-border hover">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">Şube Adı</th>
+      <th scope="col">Adres</th>
+      <th scope="col">Fiyat Tarifeleri</th>
+      <th scope="col">Park Alanı Sayısı</th>
+      <th scope="col">Müsait Park Alanı Sayısı</th>
+      <th scope="col">Oluşturulma Tarihi</th>
+      <th scope="col">Güncellenme Tarihi</th>
+      <th scope="col">Aksiyonlar</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let branch of branches">
+      <td class="vertical-center">{{branch.name}}</td>
+      <td>{{branch.address}}</td>
+      <td>
+        <button type="button" class="btn btn-outline-dark btn-block" data-toggle="modal"
+                [attr.data-target]="'#pricingListModal-'+branch.id">
+          Fiyat Listesi
+        </button>
+        <pricing-list-modal [branch]="branch"></pricing-list-modal>
+      </td>
+      <td>{{branch.parkPointCount}}</td>
+      <td>{{branch.availableParkPointCount}}</td>
+      <td>{{branch.createdAt | date: 'dd-MM-yyyy hh:mm'}}</td>
+      <td>{{branch.updatedAt | date: 'dd-MM-yyyy hh:mm'}}</td>
+      <td>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-outline-primary" (click)="prepareForUpdate(branch.id)"><i
+            class="fa fa-edit"></i></button>
+          <button type="button" class="btn btn-outline-danger" (click)="prepareForDelete(branch.id)"><i
+            class="fa fa-trash"></i></button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
