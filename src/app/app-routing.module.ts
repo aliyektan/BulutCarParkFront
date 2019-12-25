@@ -7,6 +7,11 @@ import {LoginGuard} from './guard/login.guard';
 
 const routes: Routes = [
   {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'dashboard'
+  },
+  {
     path: 'login',
     component: LoginComponent,
     data: {isLoginPage: true}
@@ -27,7 +32,7 @@ const routes: Routes = [
     path: 'dashboard',
     component: PageComponent,
     canActivate: [LoginGuard],
-    data: {child: 'dashboard'}
+    data: {child: 'dashboard', allowedRoles: 'ADMIN,SUPERADMIN,USER'}
   },
   {
     path: 'pricing-periods',
